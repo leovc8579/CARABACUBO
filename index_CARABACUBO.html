@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce la historia, ubicación, patrimonio cultural y gastronomía de Carabayllo, Lima, Perú.">
+  <title>Carabayllo | Memoria, identidad y territorio</title>
+  <style>
+    :root{
+      --forest:#172820; --forest2:#243c30; --gold:#b99a62; --paper:#f5f2eb;
+      --white:#fffdf8; --ink:#202720; --muted:#687067; --line:#ded8cb;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+    img{display:block;width:100%;object-fit:cover}
+    a{color:inherit}
+    .sans,nav,button,.eyebrow,.meta,.tag,footer{font-family:Arial,Helvetica,sans-serif}
+    .topline{height:4px;background:var(--gold)}
+    header{position:sticky;top:0;z-index:20;background:rgba(23,40,32,.97);color:white;border-bottom:1px solid #ffffff20;backdrop-filter:blur(10px)}
+    .nav-wrap{max-width:1180px;margin:auto;padding:0 24px;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:.17em;font-weight:700;text-decoration:none;white-space:nowrap}
+    .brand span{display:block;color:#d5bf91;font-size:9px;letter-spacing:.23em;font-weight:400;margin-top:4px}
+    nav{display:flex;align-items:center;gap:22px;font-size:12px;letter-spacing:.04em}
+    nav a{text-decoration:none;color:#e9e8df;transition:color .2s}
+    nav a:hover,nav a.active{color:#dfc58f}
+    .menu-btn{display:none;background:none;color:white;border:1px solid #ffffff55;padding:8px 11px;border-radius:3px}
+    .hero{background:var(--forest);color:white;position:relative;overflow:hidden}
+    .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:.92fr 1.08fr;min-height:570px;align-items:stretch}
+    .hero-copy{padding:90px 48px 80px 24px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+    h1{font-size:clamp(42px,5.2vw,72px);font-weight:400;line-height:1.02;letter-spacing:-.04em;margin:22px 0}
+    h1 em{font-weight:400;color:#d7c39b}
+    .hero-copy p{max-width:470px;color:#d8dfd7;font-size:17px;margin:0 0 28px}
+    .button{display:inline-flex;align-items:center;gap:12px;padding:13px 18px;background:var(--gold);color:#172820;text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);transition:all .2s}
+    .button:hover{background:transparent;color:#f1d9a8}
+    .hero-photo{min-height:480px;position:relative}
+    .hero-photo img{height:100%;position:absolute;inset:0}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--forest) 0%,transparent 34%),linear-gradient(0deg,#111a1270,transparent 55%)}
+    .photo-note{position:absolute;z-index:1;right:24px;bottom:24px;font:10px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+    .facts{max-width:1132px;margin:-1px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:2}
+    .fact{background:var(--white);border:1px solid var(--line);padding:24px 28px}
+    .fact+.fact{border-left:0}
+    .fact strong{display:block;color:var(--forest2);font-size:27px;font-weight:400;line-height:1.2}
+    .fact span{font:10px Arial,sans-serif;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    main{max-width:1132px;margin:auto;padding:0 24px}
+    section{padding:100px 0 20px}
+    .section-head{display:grid;grid-template-columns:100px 1fr;gap:20px;align-items:start;margin-bottom:34px}
+    .section-number{font:12px Arial,sans-serif;color:var(--gold);letter-spacing:.12em;padding-top:11px}
+    h2{font-size:clamp(32px,4vw,48px);line-height:1.1;font-weight:400;letter-spacing:-.025em;margin:0 0 12px;color:var(--forest)}
+    .section-intro{max-width:700px;color:var(--muted);font-size:16px;margin:0}
+    .history-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);border:1px solid var(--line);overflow:hidden;transition:transform .25s,box-shadow .25s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #17282012}
+    .card img{height:225px;transition:transform .5s}
+    .card:hover img{transform:scale(1.035)}
+    .card-image{overflow:hidden}
+    .card-body{padding:22px 22px 24px}
+    .tag{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8a744b;font-weight:700}
+    h3{font-size:23px;font-weight:400;line-height:1.2;color:var(--forest);margin:10px 0}
+    .card p{font-size:14px;color:#596158;margin:0}
+    .map-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:28px;align-items:stretch}
+    .map-copy{background:var(--forest);color:white;padding:34px}
+    .map-copy h3{color:white;font-size:28px}
+    .map-copy p{color:#d7ded6;font-size:15px}
+    .map-copy .meta{font-size:10px;color:#d8c08e;letter-spacing:.15em;text-transform:uppercase;margin-top:25px}
+    .map-frame{border:0;width:100%;height:100%;min-height:390px;background:#e7e3da}
+    .culture-banner{display:grid;grid-template-columns:1fr 1fr;background:#e8e3d8;margin-top:24px}
+    .culture-banner img{height:100%;min-height:280px}
+    .culture-banner div{padding:34px}
+    .culture-banner h3{font-size:28px}
+    .culture-banner p{font-size:15px;color:#596158}
+    .food-note{border-left:3px solid var(--gold);padding:15px 20px;margin:28px 0 0;color:#586056;font-size:14px;background:#eeeadf}
+
+    .history-timeline{border-left:1px solid var(--line);margin:30px 0 0 10px;padding-left:25px}
+    .history-timeline p{margin:0 0 12px;color:#596158}
+
+    .sources{border-top:1px solid var(--line);margin-top:70px;padding:28px 0 50px;color:var(--muted);font:12px/1.8 Arial,sans-serif}
+    .sources a{color:var(--forest2)}
+    footer{background:var(--forest);color:#d8dfd7;padding:30px 24px;text-align:center;font-size:11px;letter-spacing:.06em}
+    footer strong{color:#d7bf8d;font-weight:500}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:800px){
+      .nav-wrap{min-height:66px}.menu-btn{display:block}
+      nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--forest);padding:16px 24px 22px;flex-direction:column;align-items:flex-start;gap:17px;border-top:1px solid #ffffff22}
+      nav.open{display:flex}
+      .hero-inner{grid-template-columns:1fr}
+      .hero-copy{padding:66px 24px 45px}
+      .hero-photo{min-height:300px;grid-row:1}
+      .hero-photo:after{background:linear-gradient(0deg,var(--forest),transparent 55%)}
+      .facts{grid-template-columns:1fr;padding:0 16px}
+      .fact{padding:18px 22px}.fact+.fact{border-left:1px solid var(--line);border-top:0}
+      main{padding:0 18px}section{padding-top:70px}
+      .section-head{grid-template-columns:48px 1fr;gap:10px}
+      .history-grid{grid-template-columns:1fr}
+      .card img{height:245px}
+      .map-layout{grid-template-columns:1fr}
+      .map-frame{min-height:330px}
+      .culture-banner{grid-template-columns:1fr}
+      .culture-banner img{min-height:220px;max-height:280px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
+
+    /* ===== JUEGO: BOTÓN Y VENTANA ===== */
+.game-modal{position:fixed;inset:0;z-index:100;background:rgba(10,18,13,.85);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.game-modal[hidden]{display:none}
+.game-modal-box{width:100%;max-width:940px;background:var(--paper);border:1px solid var(--gold);max-height:100%;overflow:auto}
+.game-modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--forest);color:#fff;border-bottom:1px solid #ffffff22}
+.game-modal-head h2{color:#fff;font-size:24px;margin:4px 0 0}
+.game-close{background:none;border:1px solid #ffffff55;color:#fff;width:36px;height:36px;cursor:pointer;font-size:16px;border-radius:3px}
+.game-close:hover{background:var(--gold);color:#172820}
+.game-wrap{background:var(--white);border:1px solid var(--line)}
+.game-hud{display:flex;flex-wrap:wrap;background:var(--forest);color:#fff;font-family:Arial,Helvetica,sans-serif}
+.hud-item{flex:1;min-width:110px;padding:14px 18px;border-right:1px solid #ffffff20}
+.hud-item:last-child{border-right:0}
+.hud-item span{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#d8c08e}
+.hud-item strong{font:400 22px Georgia,serif}
+.game-progress{height:6px;background:#e8e3d8}
+.game-progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+.game-stage{position:relative;line-height:0}
+#gameCanvas{width:100%;height:auto;display:block;background:var(--paper);touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.game-overlay{position:absolute;inset:0;background:rgba(23,40,32,.9);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:8px;line-height:1.5;overflow:auto}
+.game-overlay[hidden]{display:none}
+.game-overlay h3{color:#fff;font-size:30px;margin:0}
+.game-overlay p{margin:0;max-width:500px;color:#d7ded6;font-size:15px}
+.mode-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.game-overlay .button{cursor:pointer}
+.button.ghost{background:transparent;color:#f1d9a8}
+.button.ghost:hover{background:var(--gold);color:#172820}
+.game-help{font:12px/1.6 Arial,sans-serif;color:var(--muted);padding:12px 18px;border-top:1px solid var(--line)}
+@media(max-width:640px){.game-overlay{padding:10px;gap:5px}.game-overlay h3{font-size:21px}.game-overlay p{font-size:12.5px}.hud-item{min-width:50%}.hud-item:nth-child(2){border-right:0}.hud-item strong{font-size:19px}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="#inicio">CARABAYLLO<span>MEMORIA · IDENTIDAD · TERRITORIO</span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">MENÚ ☰</button>
+      <nav id="menu" aria-label="Navegación principal">
+        <a href="#historia">Historia</a><a href="#ubicacion">Ubicación</a><a href="#cultura">Cultura</a><a href="#gastronomia">Gastronomía</a><a href="#" data-play>Jugar</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Distrito de Lima · Perú</div>
+        <h1>Carabayllo:<br><em>memoria, identidad</em> y territorio</h1>
+        <p>Un recorrido por el pasado milenario, el patrimonio y las tradiciones que dan carácter al valle del río Chillón.</p>
+        <a class="button" href="#historia">Explorar el distrito <span aria-hidden="true">↘</span></a>
+        <button class="button ghost" data-play style="margin-top:12px;cursor:pointer">▶ Jugar</button>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85" alt="Paisaje de montañas que evoca el territorio andino" fetchpriority="high">
+        <div class="photo-note">Lima Norte · Valle del Chillón</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><strong>1571</strong><span>Fundación histórica reconocida</span></div>
+    <div class="fact"><strong>Río Chillón</strong><span>Valle que articula el territorio</span></div>
+    <div class="fact"><strong>Patrimonio vivo</strong><span>Arqueología, historia y comunidad</span></div>
+  </div>
+
+  <main>
+    <section id="historia">
+      <div class="section-head reveal">
+        <div class="section-number">01 / HISTORIA</div>
+        <div><h2>Un pasado que sigue presente</h2><p class="section-intro">La historia de Carabayllo atraviesa miles de años: desde los primeros grupos humanos del valle del Chillón hasta las comunidades agrícolas, la colonia, la independencia y el crecimiento de Lima Norte.</p></div>
+      </div>
+
+      <div class="culture-banner reveal">
+        <img src="https://images.unsplash.com/photo-1605537964076-3cb0ea2ff588?auto=format&fit=crop&w=1100&q=80" alt="Restos arqueológicos en un paisaje árido" loading="lazy">
+        <div><span class="tag">Antes de la colonia</span><h3>Un valle habitado desde tiempos antiguos</h3><p>El valle del Chillón ofreció agua, recursos y rutas de comunicación a poblaciones que vivieron de la pesca, la recolección, la caza y la agricultura. La municipalidad recoge referencias a ocupaciones humanas de hace más de 10 000 años en la zona de Chivateros, así como a centros ceremoniales posteriores.</p><p>Complejos arqueológicos como Huacoy y Chocas evidencian la organización de antiguas sociedades y la importancia del valle mucho antes de la formación del distrito actual.</p></div>
+      </div>
+
+      <div class="history-grid" style="margin-top:20px">
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=900&q=80" alt="Arquitectura de piedra antigua" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Sociedades prehispánicas</span><h3>La presencia Colli</h3><p>Durante el periodo prehispánico tardío, el señorío Colli tuvo influencia en la parte baja y media del Chillón. La historia local recuerda su organización y resistencia ante la expansión inca. La fortaleza de Collique fue uno de sus principales centros políticos.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Iglesia y arquitectura colonial" loading="lazy"></div>
+          <div class="card-body"><span class="tag">29 de junio de 1571</span><h3>Fundación de San Pedro</h3><p>Durante el virreinato se estableció el pueblo de San Pedro de Carabayllo. La fecha del 29 de junio de 1571 es reconocida como su fundación histórica. El pueblo se convirtió en un centro administrativo y religioso del valle, y es considerado un núcleo histórico de Lima Norte.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=80" alt="Construcción tradicional de valor histórico" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Siglos XVI–XVIII</span><h3>Iglesia y haciendas</h3><p>La iglesia de San Pedro comenzó a construirse a fines del siglo XVI y se completó a inicios del XVII. Al mismo tiempo, las haciendas transformaron la economía rural. Este proceso también estuvo marcado por el despojo de tierras indígenas y el trabajo forzado de distintos grupos de población.</p></div>
+        </article>
+      </div>
+
+      <div class="culture-banner reveal">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Paisaje de valle" loading="lazy">
+        <div><span class="tag">Independencia · 1821</span><h3>Punchauca: una reunión decisiva</h3><p>El 2 de junio de 1821, José de San Martín y el virrey José de la Serna se reunieron en la casa hacienda de Punchauca para conversar sobre el futuro político del Perú. Las negociaciones no lograron un acuerdo, pero el encuentro convirtió a Punchauca en un lugar importante de la historia de la independencia.</p><p>La casa hacienda es hoy uno de los espacios patrimoniales más significativos de Carabayllo y recuerda el papel estratégico que tuvo el valle como acceso hacia Lima.</p></div>
+      </div>
+
+      <div class="history-grid" style="margin-top:20px">
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=900&q=80" alt="Paisaje agrícola" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Siglo XIX</span><h3>La vida republicana</h3><p>Tras la independencia, las haciendas siguieron concentrando gran parte de las tierras y la producción agrícola. El 2 de enero de 1857 se promulgó la norma que dio origen a la municipalidad distrital, fecha vinculada a la creación municipal de Carabayllo.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Campos de cultivo" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Siglo XX</span><h3>La reforma agraria</h3><p>En 1969, la Reforma Agraria cambió la propiedad de muchas haciendas y dio paso a cooperativas campesinas. Décadas después, parte de las tierras agrícolas se parceló y el crecimiento urbano avanzó sobre zonas del valle.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80" alt="Crecimiento urbano" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Carabayllo actual</span><h3>De valle agrícola a Lima Norte</h3><p>La expansión de Lima transformó la vida del distrito: crecieron las urbanizaciones y los asentamientos, mientras algunas áreas rurales y sitios patrimoniales permanecieron. Carabayllo conserva una combinación singular de ciudad, agricultura e historia.</p></div>
+        </article>
+      </div>
+      <div class="food-note reveal"><strong>Una idea clave:</strong> Carabayllo es importante no solo por su antigüedad, sino porque su territorio ayuda a comprender la historia del valle del Chillón, la independencia y la transformación de Lima Norte.</div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="section-head reveal">
+        <div class="section-number">02 / UBICACIÓN</div>
+        <div><h2>Entre la ciudad y el valle</h2><p class="section-intro">Carabayllo se encuentra al noreste de la provincia de Lima, en ambas márgenes del río Chillón. Su territorio reúne zonas urbanas, áreas agrícolas y espacios de valor histórico.</p></div>
+      </div>
+      <div class="map-layout reveal">
+        <div class="map-copy">
+          <span class="eyebrow">Referencia geográfica</span>
+          <h3>Carabayllo, Lima, Perú</h3>
+          <p>Explora el distrito en el mapa interactivo. Puedes acercar, alejar y abrir Google Maps para consultar rutas y sectores.</p>
+          <div class="meta">Valle del río Chillón · Lima Norte</div>
+          <p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Distrito+de+Carabayllo%2C+Lima%2C+Per%C3%BA" target="_blank" rel="noopener">Abrir Google Maps ↗</a></p>
+        </div>
+        <iframe class="map-frame" title="Mapa de Carabayllo en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Distrito%20de%20Carabayllo%2C%20Lima%2C%20Per%C3%BA&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section id="cultura">
+      <div class="section-head reveal">
+        <div class="section-number">03 / CULTURA</div>
+        <div><h2>Identidad que merece conservarse</h2><p class="section-intro">El patrimonio de Carabayllo conecta la arqueología, la arquitectura histórica y el paisaje del valle.</p></div>
+      </div>
+      <div class="history-grid">
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Templo y arquitectura tradicional" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Arquitectura</span><h3>Iglesia de San Pedro</h3><p>Es uno de los símbolos históricos del distrito. Su conservación permite reconocer la presencia colonial y la continuidad del pueblo tradicional.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Paisaje de cerros y valle" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Patrimonio arqueológico</span><h3>Huacoy y Chocas</h3><p>Estos sitios forman parte del legado prehispánico del valle. Su protección es clave para que las nuevas generaciones conozcan la historia local.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80" alt="Entorno natural con vegetación" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Paisaje y comunidad</span><h3>El valle del Chillón</h3><p>La relación entre el río, los cultivos y los asentamientos humanos ha influido durante siglos en la vida y la identidad del distrito.</p></div>
+        </article>
+      </div>
+      <div class="culture-banner reveal">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Paisaje natural de valle" loading="lazy">
+        <div><span class="tag">Memoria colectiva</span><h3>Conservar también es conocer</h3><p>Los sitios arqueológicos y las construcciones históricas necesitan cuidado. Conocer su valor ayuda a protegerlos frente al deterioro y al crecimiento urbano.</p></div>
+      </div>
+    </section>
+
+    <section id="gastronomia">
+      <div class="section-head reveal">
+        <div class="section-number">04 / GASTRONOMÍA</div>
+        <div><h2>Sabores del valle y cocina campestre</h2><p class="section-intro">La oferta gastronómica local combina restaurantes campestres con platos populares de la cocina peruana. La municipalidad destaca propuestas como el cuy y el chancho al palo.</p></div>
+      </div>
+      <div class="history-grid">
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Carne asada servida en una mesa" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Cocina campestre</span><h3>Chancho al palo</h3><p>Una preparación a fuego abierto que destaca en la oferta de restaurantes campestres de Carabayllo y sus alrededores.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80" alt="Plato tradicional servido con acompañamientos" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Tradición rural</span><h3>Cuy</h3><p>El cuy aparece entre las opciones mencionadas por la municipalidad para los restaurantes campestres del distrito.</p></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-image"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=80" alt="Comida peruana con ingredientes frescos" loading="lazy"></div>
+          <div class="card-body"><span class="tag">Productos del valle</span><h3>Sabores de temporada</h3><p>La agricultura del valle del Chillón produce hortalizas y frutas que abastecen mercados de Lima y forman parte de la actividad económica local.</p></div>
+        </article>
+      </div>
+      <div class="food-note">Nota: las fotografías gastronómicas son ilustrativas; los platos y productos descritos se basan en información municipal y agraria.</div>
+    </section>
+
+    <div class="sources">
+      <strong>Fuentes para conocer más</strong><br>
+      Municipalidad de Carabayllo — <a href="https://web.municarabayllo.gob.pe/distrito/reseniahistorica" target="_blank" rel="noopener">Reseña histórica</a> ·
+      <a href="https://web.municarabayllo.gob.pe/distrito/ficha" target="_blank" rel="noopener">Ficha del distrito</a> ·
+      <a href="https://web.municarabayllo.gob.pe/areas/desarrollo-economico" target="_blank" rel="noopener">Turismo y gastronomía</a> ·
+      MINCETUR — <a href="https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=5727" target="_blank" rel="noopener">Pueblo San Pedro de Carabayllo</a>.<br>
+      Las imágenes externas se cargan desde internet; para una presentación definitiva, se recomienda reemplazarlas por fotografías propias o con licencia de uso.
+    </div>
+  </main>
+  <footer><strong>CARABAYLLO</strong> · Memoria, identidad y territorio<br>Hecho por: · Leonardo Vilela y equipo de emprendimiento</footer>
+
+<div class="game-modal" id="gameModal" hidden role="dialog" aria-modal="true" aria-label="Rumbo al colegio">
+ <div class="game-modal-box">
+  <div class="game-modal-head"><div><span class="eyebrow">Minijuego</span><h2>Rumbo al colegio</h2></div><button class="game-close" id="gameClose" aria-label="Cerrar juego">✕</button></div>
+  <div class="game-wrap">
+    <div class="game-hud">
+      <div class="hud-item"><span>Modo</span><strong id="hudMode">—</strong></div>
+      <div class="hud-item"><span>Puntos</span><strong id="hudPoints">0</strong></div>
+      <div class="hud-item"><span>Esquivados</span><strong id="hudDodged">0</strong></div>
+      <div class="hud-item"><span id="hudExtraLabel">Meta</span><strong id="hudExtra">15</strong></div>
+    </div>
+    <div class="game-progress"><i id="gameBar"></i></div>
+    <div class="game-stage">
+      <canvas id="gameCanvas" aria-label="Juego de saltar obstáculos"></canvas>
+      <div class="game-overlay" id="gameMenu">
+        <span class="eyebrow">Elige cómo jugar</span>
+        <h3>Rumbo al colegio</h3>
+        <p><b>Historia:</b> llega al colegio con 15 puntos.<br><b>Arcade:</b> modo infinito, cada vez más rápido.</p>
+        <div class="mode-row">
+          <button class="button" id="btnStory">Modo Historia</button>
+          <button class="button ghost" id="btnArcade">Modo Arcade ∞</button>
+        </div>
+      </div>
+      <div class="game-overlay" id="gameEnd" hidden>
+        <h3 id="gameEndTitle"></h3>
+        <p id="gameEndText"></p>
+        <div class="mode-row">
+          <button class="button" id="btnAgain">Jugar de nuevo</button>
+          <button class="button ghost" id="btnMenu">Cambiar modo</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-help">Salta con <b>Espacio</b>, <b>↑</b> / <b>W</b> o tocando la pantalla. 1 punto = 5 obstáculos esquivados.</div>
+  </div>
+  </div>
+ </div>
+
+  <script>
+  (function(){
+    var cv=document.getElementById('gameCanvas'),ctx=cv.getContext('2d');
+    var W=cv.width=window.innerWidth<640?460:900,H=cv.height=300,GROUND=250;
+    var PER_POINT=5,GOAL_POINTS=15,GOAL_OBS=PER_POINT*GOAL_POINTS;
+    var PW=50,PH=76,GRAV=2400,JUMP=-820;
+    var $=function(i){return document.getElementById(i)};
+    var sprite=new Image();sprite.src='data:image/png;base64,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';
+    var state='menu',mode='story',inView=false,last=0,t=0;
+    var player,obstacles,dodged,spawned,since,gap,speed,school,dist,best=0;
+    try{best=+localStorage.getItem('carabayllo-arcade-best')||0}catch(e){}
+
+    function reset(){
+      player={x:80,y:GROUND-PH,vy:0,ground:true};
+      obstacles=[];dodged=0;spawned=0;since=0;gap=420;speed=380;school=null;dist=0;t=0;hud();
+    }
+    function points(){return Math.floor(dodged/PER_POINT)}
+    function hud(){
+      $('hudMode').textContent=mode==='story'?'Historia':'Arcade ∞';
+      $('hudPoints').textContent=points();
+      $('hudDodged').textContent=dodged;
+      $('hudExtraLabel').textContent=mode==='story'?'Meta':'Récord';
+      $('hudExtra').textContent=mode==='story'?GOAL_POINTS+' pts':best+' pts';
+      var p=mode==='story'?Math.min(dodged/GOAL_OBS,1):(dodged%PER_POINT)/PER_POINT;
+      $('gameBar').style.width=(p*100)+'%';
+    }
+    function start(m){mode=m;reset();state='playing';$('gameMenu').hidden=true;$('gameEnd').hidden=true;}
+    function showEnd(title,text){$('gameEndTitle').textContent=title;$('gameEndText').textContent=text;$('gameEnd').hidden=false;}
+    function gameOver(){
+      state='over';
+      if(mode==='arcade'&&points()>best){best=points();try{localStorage.setItem('carabayllo-arcade-best',best)}catch(e){}}
+      hud();
+      showEnd('¡Te chocaste!',mode==='story'
+        ?'Llevas '+points()+' de '+GOAL_POINTS+' puntos ('+dodged+' obstáculos esquivados). ¡Inténtalo otra vez!'
+        :'Hiciste '+points()+' puntos ('+dodged+' obstáculos esquivados). Récord: '+best+' pts.');
+    }
+    function win(){state='won';setTimeout(function(){showEnd('¡Llegaste al colegio! 🎒','Lo lograste: '+points()+' puntos y '+dodged+' obstáculos esquivados. ¿Te animas con el modo Arcade?')},1000);}
+    function jump(){if(state==='playing'&&player.ground){player.vy=JUMP;player.ground=false}}
+
+    var TYPES=[{k:'rock',w:36,h:26},{k:'cactus',w:28,h:54},{k:'double',w:54,h:44}];
+    function spawn(){
+      var ty=TYPES[Math.floor(Math.random()*TYPES.length)];
+      obstacles.push({k:ty.k,w:ty.w,h:ty.h,x:W+20,passed:false});
+      spawned++;since=0;gap=speed*0.8+180+Math.random()*240;
+    }
+    function hit(o){
+      var ax=player.x+10,ay=player.y+6,aw=PW-20,ah=PH-8;
+      var bx=o.x+3,by=GROUND-o.h+3,bw=o.w-6,bh=o.h-3;
+      return ax<bx+bw&&ax+aw>bx&&ay<by+bh&&ay+ah>by;
+    }
+    function physics(dt){
+      if(!player.ground){
+        player.vy+=GRAV*dt;player.y+=player.vy*dt;
+        if(player.y>=GROUND-PH){player.y=GROUND-PH;player.vy=0;player.ground=true}
+      }
+    }
+    function update(dt){
+      physics(dt);
+      if(state!=='playing')return;
+      speed=mode==='story'?Math.min(380+dodged*2.5,560):Math.min(380+dodged*3.2,740);
+      var mv=speed*dt;dist+=mv;t+=dt;since+=mv;
+      obstacles.forEach(function(o){o.x-=mv});
+      if(school)school.x-=mv;
+      if(since>=gap&&(mode==='arcade'||spawned<GOAL_OBS))spawn();
+      for(var i=0;i<obstacles.length;i++){
+        var o=obstacles[i];
+        if(hit(o)){gameOver();return}
+        if(!o.passed&&o.x+o.w<player.x+8){o.passed=true;dodged++;hud()}
+      }
+      obstacles=obstacles.filter(function(o){return o.x>-80});
+      if(mode==='story'&&dodged>=GOAL_OBS&&!school)school={x:W+40};
+      if(school&&school.x+110<=player.x+PW/2)win();
+    }
+
+    function hills(sp,color,hh){
+      var w=260,s=-((dist*sp)%w);ctx.fillStyle=color;
+      for(var x=s-w;x<W+w;x+=w){ctx.beginPath();ctx.moveTo(x,GROUND);ctx.lineTo(x+w/2,GROUND-hh);ctx.lineTo(x+w,GROUND);ctx.fill()}
+    }
+    function drawObstacle(o){
+      var y=GROUND-o.h,x=o.x;
+      if(o.k==='rock'){
+        ctx.fillStyle='#6f6757';ctx.fillRect(x,y+8,o.w,o.h-8);
+        ctx.fillStyle='#8a7f6d';ctx.fillRect(x+6,y,o.w-14,12);ctx.fillRect(x,y+10,o.w,o.h-10);
+        ctx.fillStyle='#a69b86';ctx.fillRect(x+8,y+2,8,4);
+      }else{
+        var cacti=o.k==='double'?[[0,o.h-10,14],[o.w-14,o.h,14]]:[[0,o.h,o.w]];
+        cacti.forEach(function(c){
+          var cx=x+c[0],ch=c[1],cw=Math.min(c[2],14),sx=cx+(c[2]-cw)/2;
+          ctx.fillStyle='#2f5a3e';ctx.fillRect(sx,GROUND-ch,cw,ch);
+          ctx.fillStyle='#3f7a53';ctx.fillRect(sx+3,GROUND-ch+2,4,ch-4);
+          if(c[2]>16){ctx.fillStyle='#2f5a3e';ctx.fillRect(cx,GROUND-ch+16,8,6);ctx.fillRect(cx,GROUND-ch+8,6,14);ctx.fillRect(cx+c[2]-8,GROUND-ch+22,8,6);ctx.fillRect(cx+c[2]-6,GROUND-ch+14,6,14)}
+        });
+      }
+    }
+    function drawSchool(s){
+      var x=s.x,y=GROUND-120;
+      ctx.fillStyle='#c9b58b';ctx.fillRect(x,y+30,220,90);
+      ctx.fillStyle='#243c30';ctx.beginPath();ctx.moveTo(x-10,y+32);ctx.lineTo(x+110,y);ctx.lineTo(x+230,y+32);ctx.fill();
+      ctx.fillStyle='#fffdf8';ctx.fillRect(x+60,y+40,100,22);
+      ctx.fillStyle='#172820';ctx.font='bold 15px Arial';ctx.textAlign='center';ctx.fillText('COLEGIO',x+110,y+56);
+      ctx.fillStyle='#8fb4c9';[[18,76],[50,76],[150,76],[182,76]].forEach(function(w){ctx.fillRect(x+w[0],y+w[1],22,20)});
+      ctx.fillStyle='#172820';ctx.fillRect(x+92,y+82,36,38);
+      ctx.fillStyle='#b99a62';ctx.fillRect(x+122,y+100,3,3);
+      ctx.fillStyle='#6b6b6b';ctx.fillRect(x+110,y-30,2,32);
+      ctx.fillStyle='#b32d2d';ctx.fillRect(x+112,y-30,18,6);ctx.fillRect(x+112,y-24,18,6);
+      ctx.fillStyle='#fff';ctx.fillRect(x+112,y-24,18,0);
+    }
+    function drawPlayer(){
+      var bob=(state==='playing'&&player.ground&&Math.sin(t*20)>0)?-3:0;
+      ctx.fillStyle='rgba(0,0,0,.14)';
+      var sh=player.ground?1:Math.max(.4,1-(GROUND-PH-player.y)/-200);
+      ctx.beginPath();ctx.ellipse(player.x+PW/2,GROUND+3,22*Math.min(sh,1),4,0,0,7);ctx.fill();
+      ctx.imageSmoothingEnabled=false;
+      if(sprite.complete&&sprite.naturalWidth)ctx.drawImage(sprite,player.x,player.y+bob,PW,PH);
+      else{ctx.fillStyle='#243c30';ctx.fillRect(player.x,player.y,PW,PH)}
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      ctx.fillStyle='#f5f2eb';ctx.fillRect(0,0,W,H);
+      hills(.15,'#e3ddcd',110);hills(.3,'#d4ccb6',70);
+      ctx.fillStyle='#e8e3d8';ctx.fillRect(0,GROUND,W,H-GROUND);
+      ctx.fillStyle='#172820';ctx.fillRect(0,GROUND,W,3);
+      ctx.fillStyle='#b99a62';
+      for(var x=-((dist)%60);x<W;x+=60){ctx.fillRect(x,GROUND+18,20,2);ctx.fillRect(x+32,GROUND+34,10,2)}
+      if(school)drawSchool(school);
+      drawPlayer();
+      obstacles.forEach(drawObstacle);
+    }
+    function loop(ts){
+      var dt=Math.min((ts-last)/1000||0,.033);last=ts;
+      if(inView){update(dt);draw()}requestAnimationFrame(loop);
+    }
+
+    document.addEventListener('keydown',function(e){
+      if(!inView||state!=='playing')return;
+      if(e.code==='Space'||e.code==='ArrowUp'||e.code==='KeyW'){e.preventDefault();jump()}
+    });
+    cv.addEventListener('pointerdown',function(e){e.preventDefault();jump()});
+    $('btnStory').onclick=function(){start('story')};
+    $('btnArcade').onclick=function(){start('arcade')};
+    $('btnAgain').onclick=function(){start(mode)};
+    $('btnMenu').onclick=function(){state='menu';reset();$('gameEnd').hidden=true;$('gameMenu').hidden=false;$('hudMode').textContent='—'};
+    var modal=$('gameModal');
+    function openGame(){modal.hidden=false;document.body.style.overflow='hidden';inView=true;state='menu';reset();$('gameEnd').hidden=true;$('gameMenu').hidden=false;$('hudMode').textContent='—';$('gameClose').focus()}
+    function closeGame(){modal.hidden=true;document.body.style.overflow='';inView=false;state='menu'}
+    document.querySelectorAll('[data-play]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openGame()})});
+    $('gameClose').onclick=closeGame;
+    modal.addEventListener('click',function(e){if(e.target===modal)closeGame()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&inView)closeGame()});
+
+    reset();$('hudMode').textContent='—';requestAnimationFrame(loop);
+  })();
+  </script>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('nav a');
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, {rootMargin: '-25% 0px -60% 0px'});
+    sections.forEach(section => sectionObserver.observe(section));
+  </script>
+</body>
+</html>
